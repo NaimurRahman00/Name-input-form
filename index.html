@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name input</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="flex justify-center bg-slate-200 min-h-screen">
+    <div class="border-2 p-4 w-fit bg-white h-fit mt-8">
+        <h1>Fill the form below</h1>
+        <hr>
+        <p class="mt-4">What is your Name?</p>
+        <input type="text" name="" id="name-input" placeholder="Your Name" class="border-2 p-2 mr-4">
+        <input type="submit" name="" id="submit-btn" class="btn bg-black text-gray-100">
+        <input type="reset" name="" id="reset-btn" class="btn bg-black text-gray-100">
+        <p class="mt-4 hidden" id="show-name">Hello, <span></span>. Welcome to our application.</p>
+    </div>
+
+    <!-- Script -->
+    <script>
+        const submitBtn = document.getElementById('submit-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const nameInput = document.getElementById('name-input');
+        const nameField = document.getElementById('show-name');
+        
+        // submit name
+        submitBtn.addEventListener('click', function(){
+            nameField.children[0].innerText = nameInput.value;
+            nameField.style.display = 'block';
+            nameField.children[0].style.fontWeight = 'bold';
+            nameInput.value = '';
+        });
+
+        // reset btn
+        resetBtn.addEventListener('click', function(){
+            nameField.style.display = 'none';
+        })
+        
+    </script>
+  </body>
+</html>
